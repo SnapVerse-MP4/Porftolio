@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Video Editor Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Premium Typography: Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-deep: #050505;
+            --accent-blue: #3b82f6;
+            --accent-purple: #a855f7;
+            --accent-cyan: #06b6d4;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Ultra-Vibrant Multi-Layered Gradient */
+        .text-gradient-vibrant {
+            background: linear-gradient(
+                45deg, 
+                #ffffff 10%, 
+                #60a5fa 25%, 
+                #a855f7 45%, 
+                #ec4899 65%,
+                #06b6d4 85%,
+                #ffffff 100%
+            );
+            background-size: 300% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFlow 8s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glow-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(60px);
+        }
+
+        .btn-glow-vibrant {
+            background: linear-gradient(45deg, #2563eb, #7c3aed);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-glow-vibrant:hover {
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.5);
+            transform: scale(1.02);
+        }
+
+        .timeline-ui {
+            background: linear-gradient(165deg, #121212, #000000);
+            border: 1px solid #222;
+        }
+
+        .accent-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(#3b82f6, #a855f7);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Global Background Elements -->
+    <div class="glow-bg top-[-200px] left-[-100px] opacity-60"></div>
+    <div class="glow-bg bottom-[10%] right-[-100px] bg-[rgba(168,85,247,0.12)]"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <!-- SVG Recreation of Snap Verse Official Logo -->
+                <div class="w-10 h-10 relative">
+                    <svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]">
+                        <!-- Main 8-pointed star shape -->
+                        <path d="M50 5 L62 38 L95 50 L62 62 L50 95 L38 62 L5 50 L38 38 Z" fill="white" />
+                        <path d="M50 15 L58 42 L85 50 L58 58 L50 85 L42 58 L15 50 L42 42 Z" fill="black" />
+                        <!-- Outer circle for the play button -->
+                        <circle cx="50" cy="50" r="16" fill="white" />
+                        <circle cx="50" cy="50" r="14" fill="black" />
+                        <!-- Play triangle -->
+                        <path d="M46 43 L58 50 L46 57 Z" fill="white" />
+                    </svg>
+                </div>
+                <div class="text-2xl font-black tracking-tight uppercase">
+                    SNAP.VERSE<span class="text-blue-500">_MP4</span>
+                </div>
+            </div>
+            <div class="hidden md:flex gap-10 text-sm font-semibold text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">Process</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <!-- Connected "Let's Talk" to Calendar link -->
+            <a href="https://calendar.app.google/2TwZxhv2moMiMPBH8" target="_blank" class="text-sm font-bold px-6 py-2.5 rounded-full bg-white text-black hover:bg-gray-200 transition-all">
+                Let's Talk
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-48 pb-32 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            
+            <!-- Hero Left -->
+            <div class="relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold tracking-widest uppercase mb-8 text-blue-400">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Available for Q1 Projects
+                </div>
+
+                <h1 class="text-6xl lg:text-[5.5rem] font-extrabold leading-[1.05] mb-8 tracking-tighter">
+                    I Edit Videos That <br/>
+                    <span class="text-gradient-vibrant">Hold Attention & Drive Results.</span>
+                </h1>
+                
+                <p class="text-xl text-gray-400 mb-12 max-w-lg leading-relaxed font-medium">
+                    Short-form, long-form & cinematic edits for creators and brands. Optimized for high-retention storytelling.
+                </p>
+
+                <!-- CTA Row -->
+                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8">
+                    <!-- Primary (Link to Canva Portfolio) -->
+                    <a href="https://snapverseportfolio.my.canva.site/" target="_blank" class="btn-glow-vibrant flex items-center gap-3 px-10 py-5 rounded-full font-bold text-lg transition-all group">
+                        <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                        View Portfolio
+                    </a>
+                    
+                    <!-- Secondary -->
+                    <a href="https://calendar.app.google/2TwZxhv2moMiMPBH8" target="_blank" class="flex items-center gap-3 px-10 py-5 glass-card font-bold text-lg hover:bg-white/10 transition-all">
+                        <i data-lucide="calendar" class="w-5 h-5 text-purple-400"></i>
+                        Book a Call
+                    </a>
+
+                    <!-- Tertiary (Socials) -->
+                    <div class="flex flex-col gap-3">
+                        <span class="text-[11px] uppercase tracking-widest text-gray-500 font-extrabold">Follow My Work</span>
+                        <div class="flex gap-5">
+                            <a href="#" class="text-gray-400 hover:text-blue-400 transition-all scale-110"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-500 transition-all scale-110"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-all scale-110"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right (Visual) -->
+            <div class="relative group">
+                <div class="timeline-ui w-full aspect-video rounded-[2.5rem] p-6 shadow-[0_0_100px_rgba(59,130,246,0.15)] relative overflow-hidden transition-transform duration-700 group-hover:rotate-1">
+                    <div class="flex items-center gap-3 mb-6 border-b border-white/5 pb-4">
+                        <div class="accent-dot bg-red-500"></div>
+                        <div class="accent-dot bg-yellow-500"></div>
+                        <div class="accent-dot bg-green-500"></div>
+                        <div class="ml-auto px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-xs text-blue-400 font-mono font-bold tracking-widest">00:14:22:04</div>
+                    </div>
+                    
+                    <!-- High Fidelity Timeline Mockup -->
+                    <div class="space-y-4">
+                        <div class="relative h-10 bg-blue-500/10 rounded-xl w-full border border-blue-500/20 flex items-center px-4">
+                            <div class="h-full w-1 bg-blue-500 absolute left-1/4"></div>
+                            <div class="h-full w-1 bg-blue-500 absolute left-2/3"></div>
+                        </div>
+                        <div class="h-10 bg-purple-500/10 rounded-xl w-3/4 border border-purple-500/20"></div>
+                        <div class="h-10 bg-cyan-500/10 rounded-xl w-11/12 border border-cyan-500/20"></div>
+                    </div>
+
+                    <!-- Centered Play Action -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-blue-600 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+                            <div class="w-24 h-24 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-full flex items-center justify-center relative">
+                                <i data-lucide="play" class="w-10 h-10 fill-white ml-1"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Artistic Elements -->
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-purple-500/20 blur-[80px] rounded-full"></div>
+                <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/20 blur-[80px] rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Work With Me -->
+    <section id="about" class="py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl lg:text-5xl font-black mb-6 tracking-tight">Crafting Content That <span class="text-blue-500 italic">Wins.</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg font-medium">Strategic editing is the difference between a scroll-past and a viral sensation.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-10 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 blur-[50px]"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(59,130,246,0.3)]">
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4">Retention-Focused</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-medium">Strategic pacing and psychological hooks designed to win the algorithm game.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-10 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 blur-[50px]"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(168,85,247,0.3)]">
+                        <i data-lucide="clock" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4">Express Delivery</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-medium">Optimized pipelines to ensure your content is ready before the trend dies down.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-10 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 blur-[50px]"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(6,182,212,0.3)]">
+                        <i data-lucide="layers" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4">Modern Motion</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-medium">Cutting-edge typography and VFX that make your videos look like high-budget films.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card p-10 group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-pink-500/5 blur-[50px]"></div>
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-orange-400 flex items-center justify-center mb-8 shadow-[0_10px_30px_rgba(236,72,153,0.3)]">
+                        <i data-lucide="heart" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-extrabold mb-4">Brand Integrity</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed font-medium">I don't just use templates. I learn your brand's unique soul and amplify it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-5xl mx-auto glass-card p-12 lg:p-20 text-center relative border-white/10 group overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute -top-20 -left-20 w-80 h-80 bg-blue-600/20 blur-[120px] rounded-full group-hover:bg-blue-600/30 transition-all duration-700"></div>
+            <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-purple-600/20 blur-[120px] rounded-full group-hover:bg-purple-600/30 transition-all duration-700"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-5xl lg:text-7xl font-black mb-8 tracking-tighter">Ready to Scale?</h2>
+                <p class="text-gray-300 mb-12 text-xl max-w-2xl mx-auto font-medium leading-relaxed">Let's build a content strategy that works while you sleep. Free 15-minute consulting session.</p>
+                
+                <a href="https://calendar.app.google/2TwZxhv2moMiMPBH8" target="_blank" class="btn-glow-vibrant inline-flex items-center gap-4 px-12 py-6 rounded-full font-black text-xl transition-all group">
+                    <i data-lucide="calendar" class="w-6 h-6 text-white/80"></i>
+                    Book Discovery Call
+                    <i data-lucide="arrow-right" class="w-6 h-6 group-hover:translate-x-2 transition-transform"></i>
+                </a>
+
+                <div class="mt-16 pt-12 border-t border-white/5 flex flex-wrap justify-center gap-x-12 gap-y-6 text-sm font-bold text-gray-400 uppercase tracking-widest">
+                    <div class="flex items-center gap-2"><i data-lucide="shield-check" class="w-5 h-5 text-blue-400"></i> No Commitment</div>
+                    <div class="flex items-center gap-2"><i data-lucide="video" class="w-5 h-5 text-purple-400"></i> Zoom / Google Meet</div>
+                    <div class="flex items-center gap-2"><i data-lucide="sparkles" class="w-5 h-5 text-cyan-400"></i> Result Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-black mb-4 tracking-tighter uppercase">SNAP.VERSE<span class="text-blue-500">_MP4</span></div>
+                <p class="text-xs text-gray-500 uppercase tracking-[0.3em] font-black">Crafting Cinematic Legacies Since 2021</p>
+            </div>
+
+            <div class="flex gap-4">
+                <a href="#" class="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-blue-500/10 hover:border-blue-500/40 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-red-500/10 hover:border-red-500/40 transition-all"><i data-lucide="youtube" class="w-5 h-5"></i></a>
+                <a href="#" class="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-blue-400/10 hover:border-blue-400/40 transition-all"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                <a href="#" class="w-12 h-12 glass-card rounded-2xl flex items-center justify-center hover:bg-blue-600/10 hover:border-blue-600/40 transition-all"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+
+            <div class="text-xs font-bold text-gray-600 tracking-wider">
+                &copy; 2024 SNAPVERSE. DESIGNED FOR PERFORMANCE.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Smooth Scroll Implementation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
